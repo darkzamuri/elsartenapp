@@ -1,0 +1,45 @@
+<ion-view title="El Sartén" hide-back-button="true" id="page10" style="background-color:#FFFFFF;">
+    <ion-content padding="true" class="has-header">
+        <div id="elSartN-markdown19" style="color:#000000;">
+            <p>Bienvenido {{username}} <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime></p>
+        </div>
+        <h2 id="elSartN-heading6" style="color:#000000;">Pendientes para Hoy</h2>
+        <ion-list id="elSartN-list11">
+            <ion-item class="item-icon-left" id="elSartN-list-item20">
+                <i class="icon ion-android-star"></i>Clientes</ion-item>
+        </ion-list>
+        <div class="item item-body" id="elSartN-list-item-container5">
+            <ion-list id="elSartN-list12" ng-repeat="cliente in clientes">
+                <ion-item class="item-avatar" id="elSartN-list-item26" ui-sref="tabsController.cliente({idCliente:cliente.Cliente.id})">
+                    <h2>{{cliente.Cliente.cli_des}}</h2>
+                </ion-item>
+                
+            </ion-list>
+        </div>
+        <ion-list id="elSartN-list23">
+            <ion-item class="item-icon-left" id="elSartN-list-item19">
+                <i class="icon ion-information-circled"></i>Facturas Vencidas</ion-item>
+            <div class="item item-body" id="elSartN-list-item-container10">
+                <ion-list id="elSartN-list22">
+                    <ion-item class="item-avatar" id="elSartN-list-item33" ui-sref="detalleDeFactura">
+                        <h2>Cliente 1
+                            <br>Factura 123456
+                            <br>30 dias Vencida</h2>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </ion-list>
+        <ion-list id="elSartN-list24">
+            <ion-item class="item-icon-left" id="elSartN-list-item39">
+                <i class="icon ion-ios-alarm-outline"></i>Productos Pendientes</ion-item>
+        </ion-list>
+        <div class="item item-body" id="elSartN-list-item-container11">
+            <ion-list id="elSartN-list25">
+                <ion-item class="item-avatar" id="elSartN-list-item40" ui-sref="tabsController.detalleCotizacion">
+                    <h2>Cliente 2
+                        <br>4 Productos</h2>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

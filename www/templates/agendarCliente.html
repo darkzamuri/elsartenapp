@@ -1,0 +1,33 @@
+<ion-view title="Agendar Cliente" id="page24">
+    <ion-content padding="true" class="has-header">
+        <form id="agendarCliente-form7" class="list">
+
+            <ion-list>
+                <h2>Seleccionar Dia</h2>
+                <ion-list> <div class='item' ion-datetime-picker ng-model="cita.date"> 
+                {{cita.date | date: "yyyy-mm-dd H:mm:ss"}} </div> </ion-list> 
+            </ion-list>
+            <div class="spacer" style="width: 300px; height: 28px;"></div>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Comentario</span>
+                <textarea placeholder="Ingrese Comentario" rows="8" cols="10" ng-model="cita.comentario"></textarea>
+            </label>
+             <a ng-click="guardarCita(cita);" id="cliente-button10" class="button button-positive  button-block">Angendar</a>
+             <ion-list id="elSartN-list11">
+             <div class="spacer" style="width: 300px; height: 28px;"></div>
+            <ion-item class="item-icon-left" id="elSartN-list-item20">
+                    <i class="icon ion-android-calendar"></i>Citas</ion-item>
+            </ion-list>
+            <div class="item item-body" id="elSartN-list-item-container5">
+
+                <ion-list id="elSartN-list12" ng-repeat="angenda in citas">
+                    <ion-item class="item-avatar" id="elSartN-list-item26">
+                        <h2>{{angenda.Cita.date}} -- {{angenda.Cita.comentario}}</h2>
+                    </ion-item>
+                    
+                </ion-list>
+            </div>
+           
+        </form>
+    </ion-content>
+</ion-view>

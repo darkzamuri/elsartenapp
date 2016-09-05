@@ -3,7 +3,7 @@
         <div class="item item-body" id="cliente-list-item-container6">
 
             <ion-list id="cliente-list36">
-                <ion-item class="item-divider" id="cliente-list-item-divider8">Agendado para días {{clientes.Cliente.dia}}</ion-item>
+                <ion-item class="item-divider" id="cliente-list-item-divider8">Agendado para días {{clientes.Cliente.dia}} <div ng-repeat="citas in clientes.Cita"> <MARQUEE> Cita pendiente : {{citas.comentario}}  el {{citas.date}}</MARQUEE> </div> </ion-item>
             </ion-list>
 
            

@@ -32,7 +32,7 @@ function ($scope, $stateParams , $ionicPopup , $timeout , $http , $rootScope, $s
 						   	});
 						   	localStorage.setItem("username", res.data.user.User.username);
 						   	localStorage.setItem("co_ven", res.data.vendedor.Vendedore.co_ven);
-						   	localStorage.setItem("user_id" res.data.user.User.id);
+						   	localStorage.setItem("user_id", res.data.user.User.id);
 						   	$state.go('elSartN');
 			            }
 			            else {
@@ -58,8 +58,8 @@ function ($scope, $stateParams , $ionicPopup , $timeout , $http , $rootScope, $s
    
 .controller('clientesCtrl', ['$scope', '$stateParams', '$http', // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams , $http) {
-	var idCliente = $stateParams.idCliente;
-	var link = 'http://localhost/elsartenbackend/Clientes/getCliente/'+ idCliente;
+	
+	var link = 'http://localhost/elsartenbackend/Clientes/getClientes/'+localStorage.getItem("co_ven");
 	
 	$http({
 	  method: 'GET',
@@ -93,8 +93,9 @@ function ($scope, $stateParams) {
 function ($scope, $stateParams , $http) {
 	$scope.username = localStorage.getItem("username");
 	$scope.clientes = {};
+	$scope.date = moment().format('LLLL');
 	// Simple GET request example:
-	var link = 'http://localhost/elsartenbackend/Clientes/getClientes/'+ localStorage.getItem("co_ven");
+	var link = 'http://localhost/elsartenbackend/Clientes/getClientes/'+ localStorage.getItem("co_ven") + '/dia';
 	$http({
 	  method: 'GET',
 	  url: link
@@ -127,7 +128,7 @@ function ($scope, $stateParams , $http , $ionicModal , $ionicPopup) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
 	  });
-
+		
 	 $ionicModal.fromTemplateUrl('my-modal.html', {
       scope: $scope,
       animation: 'slide-in-up'
@@ -301,7 +302,7 @@ function ($scope, $stateParams , $http , $ionicPopup) {
 						     title: 'Mensaje',
 						     template: res.data.mensaje
 						   	});
-						   	$scope.closeModal();
+						   	
 			            }
 			            else {
 			            	$ionicPopup.alert({
@@ -315,11 +316,44 @@ function ($scope, $stateParams , $http , $ionicPopup) {
 
 }])
    
-.controller('agregarClienteCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('agregarClienteCtrl', ['$scope', '$stateParams','$http','$ionicPopup' ,'$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $stateParams , $http ,$ionicPopup , $state) {
 
+	var link = 'http://localhost/elsartenbackend/Clientes/addCliente/';
+	var link2 = 'http://localhost/elsartenbackend/Zonas/getZonas/';
+	$http({
+	  method: 'GET',
+	  url: link2
+	}).then(function successCallback(response) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+	    $scope.Zonas = response.data;
+	  }, function errorCallback(response) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	  });
+	$scope.addCliente = function(data){
+
+		data.co_ven = localStorage.getItem('co_ven');
+		$http.post(link, {Cliente : data}).then(function (res){
+			            
+			            if(res.code = 200){
+			            	$ionicPopup.alert({
+						     title: 'Mensaje',
+						     template: res.data.mensaje
+						   	});
+						   	$state.go('clientes');
+			            }
+			            else {
+			            	$ionicPopup.alert({
+						     title: 'Mensaje',
+						     template: res.data.mensaje
+						   	});
+			            }
+		});
+	}
 
 }])
  

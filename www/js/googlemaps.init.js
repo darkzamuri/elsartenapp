@@ -2,7 +2,7 @@ angular.module('googlemaps.init', [])
 
 .config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyBmhTGwWs7REhMTvJk8e7trdsmBmjTToEU',
+        key: 'AIzaSyDDgqwiNL1ZffmxRukXEZ-MPMt8GKh09t0',
         libraries: 'weather,geometry,visualization'
     });
 }])

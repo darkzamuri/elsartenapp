@@ -3,25 +3,39 @@
         <div class="item item-body" id="agregarCliente-list-item-container15">
             <form id="agregarCliente-form11" class="list">
                 <label class="item item-input" id="agregarCliente-input16">
-                    <span class="input-label">Nombre</span>
-                    <input type="text" placeholder="">
-                </label>
-                <div class="spacer" style="width: 268px; height: 23px;"></div>
-                <label class="item item-input" id="agregarCliente-input17">
                     <span class="input-label">Rif</span>
-                    <input type="text" placeholder="">
+                    <input type="text" placeholder="" ng-model="clientes.Cliente.rif">
+                </label>
+                <div class="spacer" style="width: 268px; height: 24px;"></div>
+                <label class="item item-input" id="agregarCliente-input16">
+                    <span class="input-label">Nombre</span>
+                    <input type="text" placeholder="" ng-model="clientes.Cliente.cli_des">
+                </label>
+                <div class="spacer" style="width: 268px; height: 24px;"></div>
+                <label class="item item-input" id="agregarCliente-input16">
+                    <span class="input-label">Telefonos</span>
+                    <input type="text" placeholder="" ng-model="clientes.Cliente.telefonos">
                 </label>
                 <div class="spacer" style="width: 268px; height: 24px;"></div>
                 <label class="item item-input" id="agregarCliente-input18">
                     <span class="input-label">Email</span>
-                    <input type="email" placeholder="">
+                    <input type="email" placeholder="" ng-model="clientes.Cliente.email">
                 </label>
-                <div class="spacer" style="width: 268px; height: 29px;"></div>
-                <label class="item item-select" id="agregarCliente-select1">
+                <div class="spacer" style="width: 268px; height: 24px;"></div>
+                <label class="item item-input" id="agregarCliente-input19">
+                    <span class="input-label">Direccion</span>
+                    <input type="text" placeholder="" ng-model="clientes.Cliente.direccion">
+                </label>
+                <div class="spacer" style="width: 268px; height: 24px;"></div>
+                 <label class="item item-input" id="agregarCliente-input19">
                     <span class="input-label">Zona</span>
-                    <select></select>
+                    
+                    <select ng-options="Zona.Zona.zon_des for Zona in Zonas" ng-model="clientes.Cliente.zona">
+                        
+                    </select>
                 </label>
-                <a ui-sref="tabsController.cliente" id="agregarCliente-button16" class="button button-positive  button-block">Agregar</a>
+                
+                <a ng-click="addCliente(clientes.Cliente);" id="agregarCliente-button16" class="button button-positive  button-block">Guardar</a>
             </form>
         </div>
     </ion-content>

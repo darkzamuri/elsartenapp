@@ -6,18 +6,12 @@
                 <i class="icon ion-search placeholder-icon"></i>
                 <input type="search" placeholder="Ingrese Busqueda">
             </label>
-            <ion-item class="item-avatar" id="clientes-list-item1" ui-sref="tabsController.cliente">
-                <h2>Cliente</h2>
-            </ion-item>
-            <ion-item class="item-avatar" id="clientes-list-item2" ui-sref="tabsController.cliente">
-                <h2>Cliente</h2>
-            </ion-item>
-            <ion-item class="item-avatar" id="clientes-list-item3" ui-sref="tabsController.cliente">
-                <h2>Cliente</h2>
-            </ion-item>
-            <ion-item class="item-avatar" id="clientes-list-item4" ui-sref="tabsController.cliente">
-                <h2>Cliente</h2>
-            </ion-item>
+            <ion-list id="elSartN-list12" ng-repeat="cliente in clientes">
+                <ion-item class="item-avatar" id="elSartN-list-item26" ui-sref="tabsController.cliente({idCliente:cliente.Cliente.id})">
+                    <h2>{{cliente.Cliente.cli_des}}</h2>
+                </ion-item>
+                
+            </ion-list>
         </ion-list>
     </ion-content>
 </ion-view>

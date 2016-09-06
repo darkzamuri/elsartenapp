@@ -57,7 +57,7 @@ angular.module('app.routes', [])
   })
 
   .state('tabsController.detalleProducto', {
-    url: '/detalleproducto',
+    url: '/detalleproducto/:idProducto',
     views: {
       'tab1': {
         templateUrl: 'templates/detalleProducto.html',

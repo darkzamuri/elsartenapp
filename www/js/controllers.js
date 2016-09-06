@@ -34,6 +34,8 @@ function ($scope, $stateParams , $ionicPopup , $timeout , $http , $rootScope, $s
 						   	localStorage.setItem("co_ven", res.data.vendedor.Vendedore.co_ven);
 						   	localStorage.setItem("user_id", res.data.user.User.id);
 						   	$state.go('elSartN');
+
+						   	//$location.path('/HomePage');
 			            }
 			            else {
 			            	$ionicPopup.alert({
@@ -89,8 +91,10 @@ function ($scope, $stateParams) {
 
 }])
    
-.controller('elSartNCtrl', ['$scope', '$stateParams' , '$http', // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams , $http) {
+.controller('elSartNCtrl', ['$scope', '$stateParams' , '$http', '$state', // TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams , $http , $state) {
+	var myElements = document.querySelectorAll(".header-item");
+	myElements[0].style.display = 'block';
 	$scope.username = localStorage.getItem("username");
 	$scope.clientes = {};
 	$scope.date = moment().format('LLLL');
@@ -184,19 +188,47 @@ function ($scope, $stateParams , $http , $ionicModal , $ionicPopup) {
 
 }])
    
-.controller('detalleProductoCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('detalleProductoCtrl', ['$scope', '$stateParams','$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
+function ($scope, $stateParams,$http) {
+	var idProducto = $stateParams.idProducto;
+	var link = 'http://localhost/elsartenbackend/Articulos/getArticulo/'+idProducto;
+	
+	$scope.producto = {};
+	$http({
+	  method: 'GET',
+	  url: link
+	}).then(function successCallback(response) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+	    $scope.producto = response.data;
+	  }, function errorCallback(response) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	  });
 
 }])
    
-.controller('productosCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('productosCtrl', ['$scope', '$stateParams', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
+function ($scope, $stateParams , $http) {
+	
+	var link = 'http://localhost/elsartenbackend/Articulos/getArticulos';
+	
+	$scope.productos = {};
+	$http({
+	  method: 'GET',
+	  url: link
+	}).then(function successCallback(response) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+	    $scope.productos = response.data;
+	  }, function errorCallback(response) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	  });
 
 }])
    

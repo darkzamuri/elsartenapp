@@ -75,6 +75,20 @@ function ($scope, $stateParams , $http) {
 	    // or server returns response with an error status.
 	  });
 
+	$scope.search = function(data){
+	$http({
+	  method: 'GET',
+	  url: link+'/'+data.search
+	}).then(function successCallback(response) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+	    $scope.clientes = response.data;
+	  }, function errorCallback(response) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	  });
+	}
+
 
 
 }])
@@ -85,9 +99,22 @@ function ($scope, $stateParams) {
 
 }])
    
-.controller('facturasVencidasCtrl', ['$scope', '$stateParams', // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
+.controller('facturasVencidasCtrl', ['$scope', '$stateParams','$http', // TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams , $http) {
+	var link = 'http://localhost/elsartenbackend/Facturas/getFacturas';
+	
+	$scope.facturas = {};
+	$http({
+	  method: 'GET',
+	  url: link
+	}).then(function successCallback(response) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+	    $scope.facturas = response.data;
+	  }, function errorCallback(response) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	  });
 
 }])
    
@@ -111,6 +138,8 @@ function ($scope, $stateParams , $http , $state) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
 	  });
+
+	
 				
 }])
    
@@ -230,6 +259,20 @@ function ($scope, $stateParams , $http) {
 	    // or server returns response with an error status.
 	  });
 
+	$scope.search = function(data){
+	$http({
+	  method: 'GET',
+	  url: link+'/'+data.search
+	}).then(function successCallback(response) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+	    $scope.productos = response.data;
+	  }, function errorCallback(response) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	  });
+	}
+
 }])
    
 .controller('olvidContraseACtrl', ['$scope', '$stateParams', // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -238,11 +281,25 @@ function ($scope, $stateParams) {
 
 }])
    
-.controller('detalleDeFacturaCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('detalleDeFacturaCtrl', ['$scope', '$stateParams', '$htpp',  // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
+function ($scope, $stateParams , $http) {
+	var idFactura = $stateParams.idFactura;
+	var link = 'http://localhost/elsartenbackend/Facturas/getFactura';
+	
+	$scope.factura = {};
+	$http({
+	  method: 'GET',
+	  url: link
+	}).then(function successCallback(response) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+	    $scope.factura = response.data;
+	  }, function errorCallback(response) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	  });
 
 }])
    

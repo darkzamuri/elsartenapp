@@ -4,7 +4,7 @@
         <ion-list id="clientes-list3">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="search" placeholder="Ingrese Busqueda">
+                <input type="search" placeholder="Ingrese Busqueda" ng-model="cliente.search" ng-change="search(cliente);">
             </label>
             <ion-list id="elSartN-list12" ng-repeat="cliente in clientes">
                 <ion-item class="item-avatar" id="elSartN-list-item26" ui-sref="tabsController.cliente({idCliente:cliente.Cliente.id})">

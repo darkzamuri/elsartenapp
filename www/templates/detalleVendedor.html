@@ -1,14 +1,15 @@
-<ion-view title="Detalle Vendedor" id="page20">
-    <ion-content padding="true" class="has-header">
-        <ion-list id="detalleVendedor-list31">
-            <ion-item class="item-thumbnail-left" id="detalleVendedor-list-item45">
-                <h2>Vendedor
-                    <br>RIF: V-1234567 - 8
-                    <br>Alias: LR</h2>
+<ion-view title="Detalle Vendedor" id="olvidobg">
+    <ion-content padding="true" class="has-header mask">
+        <ion-list id="detalleVendedor-list31" class="mask2 borderline">
+            <ion-item class="item-thumbnail-left mask2 borderline" id="detalleVendedor-list-item45">
+            <img src="http://placehold.it/320x320">
+                <h2>{{vendedor.Vendedore.ven_des}}
+                    <br>{{vendedor.Vendedore.cedula}}
+                    <br>{{vendedor.Vendedore.nombre}}</h2>
             </ion-item>
         </ion-list>
         <div class="spacer" style="width: 300px; height: 22px;"></div>
-        <div class="item item-body" id="detalleVendedor-list-item-container16">
+        <div class="item item-body mask2 borderline" id="detalleVendedor-list-item-container16">
             <div id="detalleVendedor-markdown16" style="margin-top:0px;color:#000000;text-align:center;">
                 <p>
                     <strong>1.234.456 Bs. En Ventas Concretadas</strong>
@@ -17,13 +18,13 @@
         </div>
         <div class="spacer" style="width: 300px; height: 22px;"></div>
         <ion-list id="detalleVendedor-list33">
-            <ion-item class="item-icon-left" id="detalleVendedor-list-item47" ui-sref="facturasVencidas">
-                <i class="icon ion-ionic"></i>3 Facturas Vencidas</ion-item>
-            <ion-item class="item-icon-left" id="detalleVendedor-list-item46" ui-sref="clientes">
-                <i class="icon ion-ionic"></i>15 Clientes</ion-item>
+            <ion-item class="item-icon-left mask2 borderline" id="detalleVendedor-list-item47" ui-sref="facturasVencidas">
+                <i class="icon ion-ionic"></i>{{vendedor.Facturas[0][0].count}} Facturas Vencidas</ion-item>
+            <ion-item class="item-icon-left mask2 borderline" id="detalleVendedor-list-item46" ui-sref="clientes">
+                <i class="icon ion-ionic"></i>{{vendedor.Clientes[0][0].count}} Clientes</ion-item>
         </ion-list>
         <ion-list id="detalleVendedor-list35">
-            <ion-item class="item-icon-left" id="detalleVendedor-list-item48" ui-sref="cotizacionesClientes">
+            <ion-item class="item-icon-left mask2 borderline" id="detalleVendedor-list-item48" ui-sref="cotizacionesClientes">
                 <i class="icon ion-ionic"></i>6 Productos Pendientes</ion-item>
         </ion-list>
         <div id="detalleVendedor-button-bar4" class="button-bar"></div>

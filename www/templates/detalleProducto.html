@@ -1,15 +1,16 @@
-<ion-view title="Detalle Producto" id="page14">
-    <ion-content padding="true" class="has-header">
-    <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-repeat="imagen in producto.ArticulosImagene">
-  		<ion-slide>  
-	        <div style="margin: 0px; line-height: 250px; text-align: center; background-color: rgb(232, 235, 239);">
-	            <img src="{{imagen.url}}" height="250" width="100%"/>
-	        </div>
+<ion-view title="{{producto.Articulo.art_des}}" id="olvidobg">
+    <ion-content padding="true" class="has-header mask2">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" style="text-align : center;">
+  		<ion-slide>      
+            <img src="http://placehold.it/320x320">
+        </ion-slide>
+        <ion-slide>    
+            <img src="http://placehold.it/320x320">
         </ion-slide>
     </ion-slide-box>    
         <div id="detalleProducto-markdown6" style="color:#000000;">
             <p>{{producto.Articulo.art_des}}</p>
-        </div>
-        <button id="detalleProducto-button8" style="border-radius:1px 1px 1px 1px;" class="button button-positive">Agregar</button>
+            <p>{{producto.Articulo.precio}}</p>
+        </div>     
     </ion-content>
 </ion-view>

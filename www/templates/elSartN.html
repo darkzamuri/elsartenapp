@@ -1,45 +1,57 @@
-<ion-view title="El Sartén" hide-back-button="true" id="page10" style="background-color:#FFFFFF;">
-    <ion-content padding="true" class="has-header">
-        <div id="elSartN-markdown19" style="color:#000000;">
-            <p>Bienvenido {{username}} {{date}}<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime></p>
+<ion-view title="El Sartén" hide-back-button="true" id="olvidobg" ng-init="loadData();" >
+    <ion-content padding="true" class="has-header mask" >
+        <div id="elSartN-markdown19" style="color:white;">
+            <p>Bienvenido {{username}} <br> {{date}}<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime></p>
         </div>
-        <h2 id="elSartN-heading6" style="color:#000000;">Pendientes para Hoy</h2>
-        <ion-list id="elSartN-list11">
-            <ion-item class="item-icon-left" id="elSartN-list-item20">
+    
+   
+        <h2 id="elSartN-heading6" style="color:white;">Pendientes para Hoy</h2>
+        <ion-list id="elSartN-list11" class="mask" ui-sref="clientes">
+            <ion-item class="item-icon-left mask2 borderline" id="elSartN-list-item20">
                 <i class="icon ion-android-star"></i>Clientes</ion-item>
         </ion-list>
-        <div class="item item-body" id="elSartN-list-item-container5">
-            <ion-list id="elSartN-list12" ng-repeat="cliente in clientes">
-                <ion-item class="item-avatar" id="elSartN-list-item26" ui-sref="tabsController.cliente({idCliente:cliente.Cliente.id})">
-                    <h2>{{cliente.Cliente.cli_des}}</h2>
+        <div class="item item-body mask2 borderline" id="elSartN-list-item-container5">
+            <ion-list id="elSartN-list12" ng-repeat="cliente in clientes.Clientes" class="mask2 boderline">
+                <ion-item class="item-avatar mask2 borderline" id="elSartN-list-item26" ui-sref="cliente({idCliente:cliente.clientes.id})">
+                    <img src="{{cliente.clientes.img_url}}">
+                    <h2>{{cliente.clientes.cli_des}}</h2>
                 </ion-item>
                 
             </ion-list>
         </div>
-        <ion-list id="elSartN-list23">
-            <ion-item class="item-icon-left" id="elSartN-list-item19">
-                <i class="icon ion-information-circled"></i>Facturas Vencidas</ion-item>
-            <div class="item item-body" id="elSartN-list-item-container10">
-                <ion-list id="elSartN-list22">
-                    <ion-item class="item-avatar" id="elSartN-list-item33" ui-sref="detalleDeFactura">
-                        <h2>Cliente 1
-                            <br>Factura 123456
-                            <br>30 dias Vencida</h2>
-                    </ion-item>
-                </ion-list>
-            </div>
+        <div class="spacer" style="width: 300px; height: 25px;"></div>
+        <ion-list id="detalleVendedor-list33" class=" ">
+            <ion-item class="item-icon-left mask2 borderline" id="detalleVendedor-list-item47" ui-sref="facturasVencidas">
+                <i class="icon ion-cash"></i>{{vendedor.Facturas[0][0].count}} Facturas Vencidas</ion-item>
+        <div class="spacer" style="width: 300px; height: 25px;"></div>
+        <ion-item class="item-icon-left mask2 borderline" id="detalleVendedor-list-item46" class="mask2 borderline" ui-sref="clientes">
+                <i class="icon ion-person"></i>{{vendedor.Clientes[0][0].count}} Clientes</ion-item>
         </ion-list>
-        <ion-list id="elSartN-list24">
-            <ion-item class="item-icon-left" id="elSartN-list-item39">
-                <i class="icon ion-ios-alarm-outline"></i>Productos Pendientes</ion-item>
+        <div class="spacer" style="width: 300px; height: 25px;"></div>
+        <ion-list id="detalleVendedor-list35" class="mask2 borderline">
+            <ion-item class="item-icon-left mask2 borderline" id="detalleVendedor-list-item48" ui-sref="cotizacionesClientes">
+                <i class="icon ion-android-cart"></i>Productos Pendientes</ion-item>
         </ion-list>
-        <div class="item item-body" id="elSartN-list-item-container11">
-            <ion-list id="elSartN-list25">
-                <ion-item class="item-avatar" id="elSartN-list-item40" ui-sref="tabsController.detalleCotizacion">
-                    <h2>Cliente 2
-                        <br>4 Productos</h2>
-                </ion-item>
-            </ion-list>
-        </div>
+
+        <div class="spacer" style="width: 300px; height: 25px;"></div>
+        <h2 id="elSartN-heading6" style="color:white;">Estadisticas</h2>
+        <ion-list id="elSartN-list11" class="mask" >
+            <ion-item class="item-icon-left mask2 borderline" id="elSartN-list-item20">
+                <i class="icon ion-cash"></i>Ventas Mensuales</ion-item>
+        </ion-list>
+        <div class="item item-body mask2 borderline" id="elSartN-list-item-container5" >
+               
+                     <canvas id="bar" class="chart chart-bar mask"
+  chart-data="data" chart-labels="labels"  height="100"> 
+
+        </canvas> 
+                
+                
+            
+        </div> 
+          
+       
+   
+        
     </ion-content>
 </ion-view>

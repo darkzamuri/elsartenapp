@@ -2,7 +2,7 @@ angular.module('googlemaps.init', [])
 
 .config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyDDgqwiNL1ZffmxRukXEZ-MPMt8GKh09t0',
+        key: 'AIzaSyBmhTGwWs7REhMTvJk8e7trdsmBmjTToEU',
         libraries: 'weather,geometry,visualization'
     });
 }])
@@ -12,6 +12,7 @@ angular.module('googlemaps.init', [])
     /*
         Do not remove this directive, it is what powers the Creator Drag & Drop Component.
     */
+
 
     function(uiGmapGoogleMapApi, $timeout) {
 
@@ -27,7 +28,7 @@ angular.module('googlemaps.init', [])
                     }
                 }
                 
-                $attr.$observe('location', function(val){
+
                     
                     uiGmapGoogleMapApi.then(function(maps){
 
@@ -40,6 +41,7 @@ angular.module('googlemaps.init', [])
                                     longitude: lng
                                 };  
                             });
+                            
                             $scope.map.options = JSON.parse($attr.options);
                             
                             if ($attr.marker=="true"){
@@ -49,23 +51,24 @@ angular.module('googlemaps.init', [])
                                 }
                             }
                         }
-
-                        if (val.indexOf('"latitude"') > -1){
-                            val = JSON.parse(val);
-                            setupMap(val.latitude, val.longitude);
-                        }else{
-                            var geocoder = new maps.Geocoder();
-                            geocoder.geocode({'address' : val}, function(results, status){
-                                
-                                $scope.$apply(function(){
-                                    setupMap(results[0].geometry.location.lat(), results[0].geometry.location.lng());
-                                });
-            
+                        if($scope.cliente.Cliente.lat && $scope.cliente.Cliente.lon){
+                           setupMap($scope.cliente.Cliente.lat, $scope.cliente.Cliente.lon); 
+                        }
+                        else {
+                            navigator.geolocation.getCurrentPosition(function(pos) {
+                                setupMap(pos.coords.latitude , pos.coords.longitude);
+                            }, function(error) {
+                              alert('Unable to get location: ' + error.message);
                             });
                         }
+
+                        
+                        
+                              
+                        
                     });
                             
-                });
+
             
             }
       

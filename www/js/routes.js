@@ -11,9 +11,10 @@ angular.module('app.routes', [])
   
 
     .state('tabsController', {
-    url: '/page1',
+    url: '/page1/:idCliente',
     templateUrl: 'templates/tabsController.html',
-    abstract:true
+    abstract:true,
+    controller : 'tabsCtrl'
   })
 
   .state('login', {
@@ -25,7 +26,8 @@ angular.module('app.routes', [])
   .state('clientes', {
     url: '/clientes',
     templateUrl: 'templates/clientes.html',
-    controller: 'clientesCtrl'
+    controller: 'clientesCtrl',
+    cache: false,
   })
 
   .state('cambiarContraseA', {
@@ -37,114 +39,107 @@ angular.module('app.routes', [])
   .state('facturasVencidas', {
     url: '/deudas',
     templateUrl: 'templates/facturasVencidas.html',
-    controller: 'facturasVencidasCtrl'
+    controller: 'facturasVencidasCtrl',
+    cache: false,
   })
 
   .state('elSartN', {
     url: '/inicio',
     templateUrl: 'templates/elSartN.html',
-    controller: 'elSartNCtrl'
+    controller: 'elSartNCtrl',
+    cache: false,
   })
 
-  .state('tabsController.cliente', {
+  .state('cliente', {
     url: '/cliente/:idCliente',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/cliente.html',
-        controller: 'clienteCtrl'
-      }
-    }
+    templateUrl: 'templates/cliente.html',
+    controller: 'clienteCtrl',
+    cache: false,
   })
 
-  .state('tabsController.detalleProducto', {
+  .state('detalleProducto', {
     url: '/detalleproducto/:idProducto',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/detalleProducto.html',
-        controller: 'detalleProductoCtrl'
-      }
-    }
+    templateUrl: 'templates/detalleProducto.html',
+    controller: 'detalleProductoCtrl',
+    cache: false,
   })
 
-  .state('tabsController.productos', {
-    url: '/productos',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/productos.html',
-        controller: 'productosCtrl'
-      }
-    }
+  .state('productos', {
+    url: '/productos/:page/:co_cli',
+    templateUrl: 'templates/productos.html',
+    controller: 'productosCtrl',
+    cache: false,
   })
 
   .state('olvidContraseA', {
     url: '/olvidoclave',
     templateUrl: 'templates/olvidContraseA.html',
-    controller: 'olvidContraseACtrl'
+    controller: 'olvidContraseACtrl',
+    cache: false,
   })
 
   .state('detalleDeFactura', {
-    url: '/factura',
+    url: '/factura/:idFactura',
     templateUrl: 'templates/detalleDeFactura.html',
-    controller: 'detalleDeFacturaCtrl'
+    controller: 'detalleDeFacturaCtrl',
+    cache: false,
   })
 
-  .state('tabsController.detalleCotizacion', {
-    url: '/cotizacion',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/detalleCotizacion.html',
-        controller: 'detalleCotizacionCtrl'
-      }
-    }
+  .state('detalleCotizacion', {
+    url: '/cotizacion/:co_cli',
+    templateUrl: 'templates/detalleCotizacion.html',
+    controller: 'detalleCotizacionCtrl',
+    cache: false,
   })
 
   .state('detalleVendedor', {
     url: '/venedor',
     templateUrl: 'templates/detalleVendedor.html',
-    controller: 'detalleVendedorCtrl'
+    controller: 'detalleVendedorCtrl',
+    cache: false,
   })
 
   .state('cotizacionesClientes', {
-    url: '/cotizaciones',
+    url: '/cotizaciones/:co_cli',
     templateUrl: 'templates/cotizacionesClientes.html',
-    controller: 'cotizacionesClientesCtrl'
+    controller: 'cotizacionesClientesCtrl',
+    cache: false,
   })
 
-  .state('tabsController.ubicacionDeCliente', {
-    url: '/ubicacion',
-    views: {
-      'tab2': {
-        templateUrl: 'templates/ubicacionDeCliente.html',
-        controller: 'ubicacionDeClienteCtrl'
-      }
-    }
+  .state('ubicacionDeCliente', {
+    url: '/ubicacion/:idCliente',
+    templateUrl: 'templates/ubicacionDeCliente.html',
+    controller: 'ubicacionDeClienteCtrl',
+    cache: false,
   })
 
-  .state('tabsController.detallesCliente', {
-    url: '/detallecliente',
-    views: {
-      'tab3': {
-        templateUrl: 'templates/detallesCliente.html',
-        controller: 'detallesClienteCtrl'
-      }
-    }
+  .state('detallesCliente', {
+    url: '/detallecliente/:idCliente',
+    templateUrl: 'templates/detallesCliente.html',
+    controller: 'detallesClienteCtrl',
+    cache: false,     
   })
 
-  .state('tabsController.agendarCliente', {
+  .state('agendarCliente', {
     url: '/agendarcliente/:idCliente',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/agendarCliente.html',
-        controller: 'agendarClienteCtrl'
-      }
-    }
+    templateUrl: 'templates/agendarCliente.html',
+    controller: 'agendarClienteCtrl',
+    cache: false,
   })
 
   .state('agregarCliente', {
     url: '/agregarcliente',
     templateUrl: 'templates/agregarCliente.html',
-    controller: 'agregarClienteCtrl'
+    controller: 'agregarClienteCtrl',
+    cache: false,
   })
+
+  .state('datosSarten', {
+    url: '/datosSarten',
+    templateUrl: 'templates/datosSarten.html',
+    cache: false,
+  })
+
 
 $urlRouterProvider.otherwise('/login')
 

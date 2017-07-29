@@ -1,22 +1,31 @@
-<ion-view title="Detalles Cliente" id="page23">
-    <ion-content padding="true" class="has-header">
-        <div class="item item-body" id="detallesCliente-list-item-container14">
+<ion-view title="{{data.Cliente.cli_des}}" id="olvidobg">
+    <ion-content padding="true" class="has-header mask">
+        <div class="item item-body mask" id="detallesCliente-list-item-container14">
             <ion-list id="detallesCliente-list29">
                 <ion-item class="item-divider" id="detallesCliente-list-item-divider9">Facturas</ion-item>
                 <ion-item class="item-icon-left" id="detallesCliente-list-item41">
-                    <i class="icon ion-ios-star"></i>10 Facturas Entregadas</ion-item>
+                    <i class="icon ion-ios-star"></i>{{data.Factura.emitidas.length}} Facturas Emitidas</ion-item>
                 <ion-item class="item-icon-left" id="detallesCliente-list-item36">
-                    <i class="icon ion-ios-stopwatch"></i>3 Facturas Vencidas</ion-item>
+                    <i class="icon ion-ios-stopwatch"></i>{{data.Factura.vencidas.length}} Facturas Vencidas</ion-item>
+                    
                 <ion-item class="item-icon-left" id="detallesCliente-list-item18">
-                    <i class="icon ion-checkmark-circled"></i>7 Facturas Pagadas</ion-item>
+                    <i class="icon ion-checkmark-circled"></i>{{data.Factura.pagadas.length}} Facturas Pagadas</ion-item>
             </ion-list>
             <div class="spacer" style="width: 268px; height: 19px;"></div>
-            <ion-list id="detallesCliente-list34">
-                <ion-item class="item-divider" id="detallesCliente-list-item-divider10">Productos Pendientes</ion-item>
-                <ion-item id="detallesCliente-list-item42">Producto 1 - COD8765</ion-item>
-                <ion-item id="detallesCliente-list-item43">Producto 2 - COD8765</ion-item>
-                <ion-item id="detallesCliente-list-item44">Producto 3 - COD12765</ion-item>
-            </ion-list>
+        <h1 id="detalleCotizacion-heading4" style="color:white;">Productos</h1>     
+        <ion-list id="detalleCotizacion-list26" ng-repeat="producto in productos">
+            <ion-item class="item-thumbnail-left" id="detalleCotizacion-list-item32" ui-sref="detalleProducto({idProducto:producto.Articulo.id})">
+                <img src="http://placehold.it/120x120">
+                <h2>{{producto.Articulo.co_art}}
+                    <br>{{producto.Articulo.art_des}}
+                    <br>{{producto.Cotizacione.cantidad}}</h2>
+
+            </ion-item>
+            
+        </ion-list>
+
+       
+
         </div>
     </ion-content>
 </ion-view>

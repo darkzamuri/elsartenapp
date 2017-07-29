@@ -1,17 +1,29 @@
-<ion-view title="Clientes" id="page7">
-    <ion-content padding="true" class="has-header">
-        <a ui-sref="agregarCliente" id="clientes-button9" class="button button-positive  button-block">agregar cliente</a>
-        <ion-list id="clientes-list3">
-            <label class="item item-input">
+<ion-view title="Clientes"  id="olvidobg">
+    <ion-content padding="true" class="has-header mask">
+        
+        <ion-list id="clientes-list3" class="">
+            <label class="item item-input  borderline mask2">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="search" placeholder="Ingrese Busqueda" ng-model="cliente.search" ng-change="search(cliente);">
+                <input type="search" placeholder="Ingrese Busqueda" ng-model="cliente.search" ng-change="search(cliente);" class="">
             </label>
-            <ion-list id="elSartN-list12" ng-repeat="cliente in clientes">
-                <ion-item class="item-avatar" id="elSartN-list-item26" ui-sref="tabsController.cliente({idCliente:cliente.Cliente.id})">
-                    <h2>{{cliente.Cliente.cli_des}}</h2>
+            <div class="spacer" style="width: 300px; height: 25px;"></div>
+            <ion-list id="elSartN-list12" class="" ng-repeat="cliente in clientes.Clientes">
+                <ion-item class="item-avatar borderline mask2" id="elSartN-list-item26" ui-sref="cliente({idCliente:cliente.clientes.id})">
+                    <img src="{{cliente.clientes.img_url}}" width="120" height="120">
+                    <h2>{{cliente.clientes.cli_des}}</h2>
                 </ion-item>
                 
             </ion-list>
+            <div class="spacer" style="width: 268px; height: 40px;"></div>
         </ion-list>
+
     </ion-content>
+
 </ion-view>
+<div id="cliente-button-bar3" class="button-bar tabs">
+
+      
+                <button class="button button-dark" style="border-radius : 0;display: inline-block !important; font-size: 14px; line-height: 10px; padding: 2px;" ui-sref="agregarCliente">Agregar
+                  <i class="icon ion-person" style="display: block !important;"></i>
+                 
+                </button>

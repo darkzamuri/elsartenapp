@@ -1,22 +1,42 @@
-<ion-view title="Productos" id="page16">
-    <ion-content padding="true" class="has-header">
+<ion-view title="Productos"  id="olvidobg">
+    <ion-content padding="true" class="has-header mask">
         <ion-list id="productos-list13">
-            <div class="item item-body" id="productos-list-item-container19">
+            <div class="item item-body mask2 borderline" id="productos-list-item-container19">
                 <form id="productos-form8" class="list">
-                    <label class="item item-input">
+                    <label class="item item-input mask2 borderline">
                         <i class="icon ion-search placeholder-icon"></i>
                         <input type="search" placeholder="Ingrese Valor" ng-model="articulo.search" ng-change="search(articulo);">
                     </label>
                 </form>
+
             </div>
         </ion-list>
         <div class="spacer" style="width: 300px; height: 24px;"></div>
         <ion-list id="productos-list17" ng-repeat="producto in productos">
-            <ion-item class="item-thumbnail-left item-icon-right" id="productos-list-item28"ui-sref="tabsController.detalleProducto({idProducto:producto.Articulo.id})">
-                <h2>{{producto.Articulo.art_des}}</h2>
-                <i class="icon ion-android-add-circle" ></i>
+            <ion-item class="item-thumbnail-left item-icon-right mask2 borderline" id="productos-list-item28">
+                <img src="http://placehold.it/120x120" ui-sref="detalleProducto({idProducto:producto.Articulo.id})">
+                <h2 >{{producto.Articulo.art_des}}</h2>
+                <h2>{{producto.Articulo.precio}} Bs.</h2>
+                <div ng-show="co_cli > 1">
+                    <i class="icon ion-android-add-circle" ng-click="addProducto({co_art:producto.Articulo.co_art , cantidad : productos.Articulo.cantidad[$index]})"></i>
+                    <ion-item style="border: none;">
+                    <i class="icon ion-android-add-circle" ng-click="productos.Articulo.cantidad[$index] =  productos.Articulo.cantidad[$index] + 1"></i>
+                    </ion-item>
+                    <ion-item style="border: none;">
+                    <i class="icon ion-android-remove-circle" ng-click="productos.Articulo.cantidad[$index] =  productos.Articulo.cantidad[$index] - 1"></i>
+                    <div style="border-radius : 50% ; border-color : silver;">Cantidad : 
+                    {{(!productos.Articulo.cantidad[$index]) ? 1 : productos.Articulo.cantidad[$index]}}   
+                    </div>
+            </div>
             </ion-item>
+            </ion-item>
+                 
         </ion-list>
-
+            <ion-item>
+                <div class="button-bar bar-dark" style="overflow-x : scroll ; " >
+                  <a class="button" href="#/productos/{{$index + 1}}/{{co_cli}}" ng-repeat-n="pagination.Articulo.pageCount" ng-class="{true: 'activated', false: 'activated'}[pagination.Articulo.page == 1]">{{$index + 1}}</a>
+                  
+                </div>
+            </ion-item>
     </ion-content>
 </ion-view>

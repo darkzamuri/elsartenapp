@@ -9,6 +9,8 @@
     
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+    <script src="lib/ionic.cloud.min.js"></script>
+    
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -39,7 +41,88 @@
         border-left:0px;
         border-right: 0px;
       }
+      .custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Selecciona Foto';
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+#loginview {
+  background: url('img/cocinaindustrial01_elsarten.jpg') no-repeat center center fixed; 
+        -webkit-background-size: 100% cover;
+        -moz-background-size: 100% cover;
+        background-size: 100% cover;
+
+}
+
+#olvidobg {
+  background: url('img/cocinaindustrial02_elsarten.jpg')no-repeat center center fixed;
+  -webkit-background-size: 100% cover;
+        -moz-background-size: 100% cover;
+        background-size: 100% cover;
+}
+.mask { background-color : transparent;   background-color: rgba(0,0,0,.50) !important;background-color : black;
+  color : white;
+}
+.mask2 { background-color : transparent;   background-color: rgba(0,0,0,.75) !important;background-color : black;
+  color : white;
+}
+.mask2 .item-content {
+  background-color : transparent;   
+}
+.mask2 h2  , .input-label {
+  color : white;   
+}
+.borderline {
+  border-color: #333 !important;
+  border-radius: 1px;
+  color: white;
+}
+.borderline .item {
+  background-color: transparent;
+  color: white;
+}
+.mask2 .item {
+  background-color: transparent;
+  color: white;
+      border-color: #333;
+}
+.item {
+  background-color: transparent;
+  color: white;
+}
+.borderline input ,h2 ,p , select{
+  color : white !important;
+}
+h2 {
+  color : white;
+}
+p {
+  color : white;
+}
+
+
     </style>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
@@ -60,36 +143,45 @@
     
     <script src="lib/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
     <link href="lib/ion-datetime-picker/release/ion-datetime-picker.min.css" rel="stylesheet">
-
+    <script src="lib/angular-base64-upload/src/angular-base64-upload.js"></script>
     <script src="lib/moment/moment.js"></script>
     <script src="lib/moment/locale/es.js"></script>
+    <script src="lib/angular-repeat-n/dist/angular-repeat-n.min.js"></script>
+    <script src="lib/chart.js/dist/Chart.js"></script>
+    <script src="lib/angular-chart.js/dist/angular-chart.js"></script>
     
-
     <!-- Only required for Tab projects w/ pages in multiple tabs 
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
     -->
 
   </head>
   <body ng-app="app" animation="slide-left-right-ios7">
-  <div>
-    <ion-side-menus enable-menu-with-back-views="false" data-componentid="side-menu21">
-        <ion-side-menu-content>
-            <ion-nav-bar class="bar-calm">
-                <ion-nav-back-button></ion-nav-back-button>
-                <ion-nav-buttons side="right">
-                    <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
-                </ion-nav-buttons>
+  <div class="">
+
+    <ion-side-menus enable-menu-with-back-views="false" data-componentid="side-menu21" class="borderline mask2">
+        <ion-side-menu-content drag-content="false">
+            <ion-nav-bar class="bar-dark" >
+
+                <ion-nav-back-button class="button-clear" side="right">
+                  <i class="ion-arrow-left-c"></i> Atras
+                </ion-nav-back-button>
+
+                  <ion-nav-buttons side="right">
+                      <button class="button button-icon button-clear ion-navicon" menu-toggle="right" style="display:block"></button>
+                  </ion-nav-buttons>
             </ion-nav-bar>
             <ion-nav-view></ion-nav-view>
         </ion-side-menu-content>
-        <ion-side-menu side="right" id="side-menu21">
-            <ion-header-bar class="bar-balanced">
+        <ion-side-menu side="right" id="side-menu21" class="bar-dark">
+            <ion-header-bar class="bar-dark">
                 <div class="title">Menu</div>
             </ion-header-bar>
-            <ion-content padding="false" class="side-menu-right has-header">
-                <ion-list id="menu-list6" data-componentid="list6">
-                    <ion-item class="item-icon-left" id="menu-list-item9" ui-sref="elSartN" menu-close="" data-componentid="list-item9">
+            <ion-content padding="false" class="side-menu-right has-header borderline mask2">
+                <ion-list id="menu-list6" data-componentid="list6" class="borderline mask2">
+                    <ion-item class="item-icon-left " id="menu-list-item9" ui-sref="elSartN" menu-close="" data-componentid="list-item9">
                         <i class="icon ion-home"></i>Inicio</ion-item>
+                    <ion-item class="item-icon-left" id="menu-list-item10" ui-sref="productos({page : 1 , co_cli : 0})" menu-close="" data-componentid="list-item10">
+                        <i class="icon ion-android-cart"></i>Productos</ion-item>    
                     <ion-item class="item-icon-left" id="menu-list-item10" ui-sref="clientes" menu-close="" data-componentid="list-item10">
                         <i class="icon ion-android-contacts"></i>Clientes</ion-item>
                     <ion-item class="item-icon-left" id="menu-list-item11" ui-sref="facturasVencidas" menu-close="" data-componentid="list-item11">
@@ -98,7 +190,8 @@
                         <i class="icon ion-key"></i>Cambiar Contraseña</ion-item>
                     <ion-item class="item-icon-left" id="menu-list-item17" ui-sref="detalleVendedor" menu-close="" data-componentid="list-item17">
                         <i class="icon ion-ios-body"></i>Detalle Vendedor</ion-item>
-                    <ion-item class="item-icon-left" id="menu-list-item14" ui-sref="login" menu-close="" data-componentid="list-item14">
+                        
+                    <ion-item class="item-icon-left" id="menu-list-item14" ui-sref="login" onclick="localStorage.clear();" menu-close="" data-componentid="list-item14">
                         <i class="icon ion-android-exit"></i>Salir</ion-item>
                 </ion-list>
             </ion-content>

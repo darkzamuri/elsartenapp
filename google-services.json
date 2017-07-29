@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1052686188094",
+    "firebase_url": "https://elsarten-36182.firebaseio.com",
+    "project_id": "elsarten-36182",
+    "storage_bucket": "elsarten-36182.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052686188094:android:c49f4df7552ee07e",
+        "android_client_info": {
+          "package_name": "com.ionicframework.elsartenapp426873"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052686188094-fac0cbaatfca3oem3d38jj8hjsot6s4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVppZL15pgohuJAd2gFCIgynpwAjq63_Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

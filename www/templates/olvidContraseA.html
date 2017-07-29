@@ -1,16 +1,19 @@
-<ion-view title="Olvidó Contraseña" hide-nav-bar="true" id="page12">
-    <ion-content padding="true" class="manual-ios-statusbar-padding">
-        <h1 id="olvidContraseA-heading1" style="color:#000000;">Olvidó Contraseña</h1>
+<ion-view title="Olvidó Contraseña" hide-nav-bar="true" id="olvidobg" >
+
+    <ion-content padding="true" class="manual-ios-statusbar-padding mask" style=" ">
+
         <div class="spacer" style="width: 300px; height: 60px;"></div>
         <div>
-            <img src="img/wBEmVHGT0OXrylFnpCyg_elsarten-logo.png" width="50%" height="80" style="display: block; margin-left: auto; margin-right: auto;">
+            <img src="img/elsarten-logo-dark.png" width="220" height="100" style="display: block; margin-left: auto; margin-right: auto;">
         </div>
+        <h2  style="color:white; text-align : center;">Recuperar Contraseña</h2>
         <div class="spacer" style="width: 300px; height: 85px;"></div>
-        <form id="olvidContraseA-form6" class="list">
-            <label class="item item-input" id="olvidContraseA-input9">
-                <input type="email" placeholder="Correo Electrónico">
+        <form id="olvidContraseA-form6" class="list" style="padding : 50px 50px 0 50px;">
+            <label class="item item-input borderline mask2" id="olvidContraseA-input9" style="background-color : white;">
+                <input type="email" ng-model="data.email" placeholder="Correo Electrónico">
             </label>
+        
+        <button id="olvidContraseA-button13" ng-click="recuperar(data);" class="button button-dark  button-block">Enviar</button>
         </form>
-        <button id="olvidContraseA-button13" class="button button-positive  button-block">Enviar</button>
     </ion-content>
 </ion-view>

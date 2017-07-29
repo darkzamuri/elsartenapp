@@ -1,43 +1,45 @@
-<ion-view title="Cliente" id="page11">
-    <ion-content padding="true" class="has-header">
-        <div class="item item-body" id="cliente-list-item-container6">
-
-            <ion-list id="cliente-list36">
-                <ion-item class="item-divider" id="cliente-list-item-divider8">Agendado para días {{clientes.Cliente.dia}} <div ng-repeat="citas in clientes.Cita"> <MARQUEE> Cita pendiente : {{citas.comentario}}  el {{citas.date}}</MARQUEE> </div> </ion-item>
+<ion-view title="Cliente"  id="olvidobg">
+    <ion-content padding="true" class="has-header mask">
+        <div class="item item-body borderline mask2" id="cliente-list-item-container6">
+     
+            <ion-list id="cliente-list36" class="">
+                <ion-item class="item-divider" id="cliente-list-item-divider8">Agendado para días {{clientes.Cliente.dia}}  </ion-item>
+               
             </ion-list>
-
-           
-
-            <div id="cliente-button-bar3" class="button-bar">
-                <a ui-sref="tabsController.agendarCliente({idCliente:clientes.Cliente.id})" id="cliente-button10" class="button button-positive  button-block">Angendar</a>
-                <a ui-sref="tabsController.detalleCotizacion" id="cliente-button11" class="button button-positive  button-block">Cotizacion</a>
-                <a ng-click="modal.show()" id="cliente-button12" class="button button-positive  button-block" >Actualizar</a>
-            </div>
-            
+            <ion-list id="cliente-list36">
+            <MARQUEE > <span ng-repeat="citas in clientes.Cita">  Cita pendiente : {{citas.comentario}}  el {{citas.date}}  </span></MARQUEE>
+            </ion-list>
 
             <ion-list id="cliente-list20">
                 <ion-item class="item-thumbnail-left" id="cliente-list-item12">
+                     <img src="{{clientes.Cliente.img_url}}"  width="120px" height="120px" >
+            <label class="button button-dark" style="text-align : center;     width: 20vh;" >Subir Foto
+              <input type='file' id="fileInput" style="width:0;opacity : 0;"class="custom-file-input" ng-model='file' ng-change="upload(file);"  base-sixty-four-input >
+            </label>
+                    
                     <h2>{{clientes.Cliente.cli_des}}</h2>
                 </ion-item>
                 <ion-item class="item-divider" id="cliente-list-item-divider4">Telefonos</ion-item>
                 <div class="item item-body" id="cliente-list-item-container8">
-                    <div id="cliente-markdown8" style="margin-top:0px;color:#000000;">
+                    <div id="cliente-markdown8" style="margin-top:0px;color:white;">
                         <p>
-                            {{clientes.Cliente.telefonos}}
+                            
+                            <a href="tel:{{clientes.Cliente.telefonos}}" >{{clientes.Cliente.telefonos}}</a>
                         </p>
                     </div>
                 </div>
                 <ion-item class="item-divider" id="cliente-list-item-divider5">Direccion</ion-item>
                 <div class="item item-body" id="cliente-list-item-container7">
-                    <div id="cliente-markdown7" style="margin-top:0px;color:#000000;">
+                    <div id="cliente-markdown7" style="margin-top:0px;color:white;">
                         <p>
                             {{clientes.Cliente.direccion}}
                         </p>
+                        <a href="geo://{{clientes.Cliente.lat}},{{clientes.Cliente.lon}}?q={{clientes.Cliente.direccion}}" data-rel="external">Abrir en google maps</a>
                     </div>
                 </div>
-                <ion-item class="item-divider" id="cliente-list-item-divider5">Zona</ion-item>
+                <ion-item class="item-divider" id="cliente-list-item-divider5">Punto de Referencia</ion-item>
                 <div class="item item-body" id="cliente-list-item-container7">
-                    <div id="cliente-markdown7" style="margin-top:0px;color:#000000;">
+                    <div id="cliente-markdown7" style="margin-top:0px;color:white;">
                         <p>
                             {{clientes.Zona.zon_des}}
                         </p>
@@ -49,15 +51,15 @@
                 <ion-item class="item-divider" id="cliente-list-item-divider12">Correo Electrónico</ion-item>
             </ion-list>
             <div class="item item-body" id="cliente-list-item-container18">
-                <div id="cliente-markdown22" style="margin-top:0px;color:#000000;">
+                <div id="cliente-markdown22" style="margin-top:0px;color:white;">
                     <p>{{clientes.Cliente.email}}
                     </p>
                 </div>
             </div>
             <div class="spacer" style="width: 268px; height: 29px;"></div>
-                <label class="item item-select" id="agregarCliente-select1">
-                    <span class="input-label">Dia</span>
-                    <select ng-model ="clientes.Cliente.dia" ng-change="updateCliente(clientes.Cliente);">
+                <label class="item item-select borderline mask2" id="agregarCliente-select1">
+                    <span class="input-label" style="color : white;">Dia</span>
+                    <select ng-model ="clientes.Cliente.dia" ng-change="updateCliente(clientes.Cliente);" class="borderline mask2" style="color : white;">
                         <option>Lunes</option>
                         <option>Martes</option>
                         <option>Miercoles</option>
@@ -69,9 +71,36 @@
 
                 </label>
         </div>
+        <div class="spacer" style="width: 268px; height: 40px;"></div>
     </ion-content>
+
+    <div id="cliente-button-bar3" class="button-bar tabs">
+
+      
+                <button class="button button-dark" style="border-radius : 0;display: inline-block !important; font-size: 14px; line-height: 10px; padding: 2px;" ui-sref="agendarCliente({idCliente : idCliente})">Agendar
+                  <i class="icon ion-calendar" style="display: block !important;"></i>
+                 
+                </button>
+
+
+                <button class="button button-dark" style="border-radius : 0;display: inline-block !important; font-size: 14px; line-height: 10px; padding: 5px;" ui-sref="detalleCotizacion({co_cli : idCliente})">Cotizacion
+                  <i class="icon ion-android-cart" style="display: block !important;"></i>
+                 
+                </button>
+                <button class="button button-dark" style="border-radius : 0;display: inline-block !important; font-size: 14px; line-height: 10px; padding: 5px;"  ng-click="modal.show()">Actualizar
+                  <i class="icon ion-person" style="display: block !important;"></i>
+                 
+                </button>
+                <button class="button button-dark" style="border-radius : 0;display: inline-block !important; font-size: 14px; line-height: 10px; padding: 5px;" ui-sref="detallesCliente({idCliente : idCliente})">Detalles
+                  <i class="icon ion-cash" style="display: block !important;"></i>
+                 
+                </button>
+                <button class="button button-dark" style="border-radius : 0;display: inline-block !important; font-size: 14px; line-height: 10px; padding: 5px;" ui-sref="ubicacionDeCliente({idCliente : idCliente})">Ubicacion
+                  <i class="icon ion-earth" style="display: block !important;"></i>
+                </button>
+    </div>
     <script id = "my-modal.html" type = "text/ng-template">
-   <ion-modal-view>
+   <ion-modal-view >
       <ion-header-bar>
          <h1 class = "title">Actualizar Cliente</h1><button class = "button icon icon-left ion-ios-close-outline"
             ng-click = "closeModal()">Cerrar</button>
@@ -105,4 +134,5 @@
       </ion-content>
    </ion-modal-view>
 </script>
+
 </ion-view>

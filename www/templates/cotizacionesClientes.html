@@ -1,22 +1,21 @@
-<ion-view title="Cotizaciones Clientes" id="page22">
-    <ion-content padding="true" class="has-header">
+<ion-view title="Cotizaciones Clientes" id="olvidobg">
+    <ion-content padding="true" class="has-header mask">
+        
         <ion-list id="cotizacionesClientes-list37">
-            <ion-item class="item-icon-left" id="cotizacionesClientes-list-item53">
-                <i class="icon ion-android-list"></i>Cliente 1
-                <br>Factura 123456
-                <br>4 Productos</ion-item>
-            <ion-item class="item-icon-left" id="cotizacionesClientes-list-item56">
-                <i class="icon ion-android-list"></i>Cliente 1
-                <br>Factura 123456
-                <br>4 Productos</ion-item>
-            <ion-item class="item-icon-left" id="cotizacionesClientes-list-item55">
-                <i class="icon ion-android-list"></i>Cliente 1
-                <br>Factura 123456
-                <br>4 Productos</ion-item>
-            <ion-item class="item-icon-left" id="cotizacionesClientes-list-item54">
-                <i class="icon ion-android-list"></i>Cliente 1
-                <br>Factura 123456
-                <br>4 Productos</ion-item>
-        </ion-list>
+             <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="Ingrese Busqueda" ng-model="cliente.search" ng-change="search(cliente);">
+            </label>
+            
+            <div class="spacer" style="width: 268px; height: 40px;"></div>
+            <ion-list id="elSartN-list12" class="" ng-repeat="cliente in clientes">
+                <ion-item class="item-avatar" id="elSartN-list-item26" ui-sref="cliente({idCliente:cliente.Cliente.id})">
+                    <img src="{{cliente.Cliente.img_url}}" width="120" height="120">
+                    <h2>{{cliente.Cliente.cli_des}}</h2>
+                    <br>{{cliente.Cotizacione.length}} Productos</ion-item>
+                </ion-item>
+                
+            </ion-list>
+           
     </ion-content>
 </ion-view>

@@ -1,28 +1,32 @@
-<ion-view title="Detalle Cotizacion" id="page18">
-    <ion-content padding="true" class="has-header">
-        <h1 id="detalleCotizacion-heading4" style="color:#000000;">Productos</h1>
-        <a ui-sref="tabsController.productos" id="detalleCotizacion-button15" class="button button-positive  button-block">Agregar nuevo Producto</a>
-        <ion-list id="detalleCotizacion-list26">
-            <ion-item class="item-thumbnail-left" id="detalleCotizacion-list-item32" ui-sref="tabsController.detalleProducto">
-                <h2>Producto 1
-                    <br>COD12345
-                    <br>4 Unidades</h2>
+<ion-view title="Detalle Cotizacion" id="olvidobg">
+    <ion-content padding="true" class="has-header mask">
+        <h1 id="detalleCotizacion-heading4" style="color:white;"><span></span>
+            <span style="float: right"> Total : {{getTotal()}}</span> <button class="button button-positive" ng-click="enviarCotizacion()"> Enviar Cotizacion</button></h1>
+        
+        <ion-list id="detalleCotizacion-list26"  ng-repeat="producto in productos">
+            <ion-item class="item-thumbnail-left item-icon-right mask" id="detalleCotizacion-list-item32" >
+                <img src="http://placehold.it/120x120">
+                <h2>{{producto.Articulo.co_art}}
+                    <br>{{producto.Articulo.art_des}}
+                    <br>Cantidad : {{producto.Cotizacione.cantidad}}
+                    <br>{{producto.Articulo.precio}} Bs . C/U
+                    <br>Total : {{producto.Articulo.precio * producto.Cotizacione.cantidad}} Bs.
+                    
+                </h2>
+
+                    <i class="icon ion-android-remove-circle" ng-click="deleteProducto({id:producto.Cotizacione.id})"></i>
             </ion-item>
-            <ion-item class="item-thumbnail-left" id="detalleCotizacion-list-item34" ui-sref="tabsController.detalleProducto">
-                <h2>Producto 2
-                    <br>COD76543
-                    <br>10 Unidades</h2>
-            </ion-item>
-            <ion-item class="item-thumbnail-left" id="detalleCotizacion-list-item35" ui-sref="tabsController.detalleProducto">
-                <h2>Producto 3
-                    <br>COD09876
-                    <br>1 Unidad</h2>
-            </ion-item>
-            <ion-item class="item-thumbnail-left" id="detalleCotizacion-list-item37" ui-sref="tabsController.detalleProducto">
-                <h2>Producto 4
-                    <br>COD19283
-                    <br>12 Unidades</h2>
-            </ion-item>
+            
         </ion-list>
+
     </ion-content>
 </ion-view>
+<div id="cliente-button-bar3" class="button-bar tabs">
+
+      
+                <button class="button button-positive" style="border-radius : 0; display: inline-block !important; font-size: 14px; line-height: 10px; padding: 2px;" ui-sref="productos({co_cli : idCliente , page : 1})">Agregar Nuevo Producto
+                  <i class="icon ion-android-cart" style="display: block !important;"></i>
+                 
+                </button>
+
+</div>

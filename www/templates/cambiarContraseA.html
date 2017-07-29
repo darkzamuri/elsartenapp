@@ -1,15 +1,16 @@
-<ion-view title="Cambiar Contraseña" id="page8">
-    <ion-content padding="true" class="has-header">
+<ion-view title="Cambiar Contraseña"  id="olvidobg">
+    <ion-content padding="true" class="has-header mask">
         <form id="cambiarContraseA-form4" class="list">
-            <label class="item item-input" id="cambiarContraseA-input7">
-                <span class="input-label">Contraseña Anterior</span>
-                <input type="text" placeholder="">
+            <label class="item item-input mask2 borderline" id="cambiarContraseA-input7">
+                <span class="input-label" style="color : white;">Nueva Contraseña</span>
+                <input type="password" placeholder="" ng-model="data.password" style="color : white;">
             </label>
-            <label class="item item-input" id="cambiarContraseA-input8">
-                <span class="input-label">Nueva Contraseña</span>
-                <input type="text" placeholder="">
+            <div class="spacer" style="width: 300px; height: 25px;"></div>
+            <label class="item item-input mask2 borderline" id="cambiarContraseA-input8">
+                <span class="input-label" style="color : white;">Repita Nueva Contraseña</span>
+                <input type="password" placeholder="" ng-model="data.cpassword" style="color : white;">
             </label>
         </form>
-        <button id="cambiarContraseA-button4" class="button button-positive  button-block">Ok</button>
+        <button id="cambiarContraseA-button4" class="button button-positive  button-block" ng-click="guardarContrasena(data)">Guardar</button>
     </ion-content>
 </ion-view>

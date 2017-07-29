@@ -1,7 +1,7 @@
-<ion-view title="Agregar Cliente" id="page26">
-    <ion-content padding="true" class="has-header">
+<ion-view title="Agregar Cliente" id="olvidobg">
+    <ion-content padding="true" class="has-header mask">
         <div class="item item-body" id="agregarCliente-list-item-container15">
-            <form id="agregarCliente-form11" class="list">
+            <form id="agregarCliente-form11" class="list mask2">
                 <label class="item item-input" id="agregarCliente-input16">
                     <span class="input-label">Rif</span>
                     <input type="text" placeholder="" ng-model="clientes.Cliente.rif">
@@ -27,13 +27,14 @@
                     <input type="text" placeholder="" ng-model="clientes.Cliente.direccion">
                 </label>
                 <div class="spacer" style="width: 268px; height: 24px;"></div>
-                 <label class="item item-input" id="agregarCliente-input19">
+                 <label class="item item-input item-select" id="agregarCliente-input19">
                     <span class="input-label">Zona</span>
                     
-                    <select ng-options="Zona.Zona.zon_des for Zona in Zonas" ng-model="clientes.Cliente.zona">
+                    <select class="mask" ng-options="Zona.Zona.zon_des for Zona in Zonas" ng-model="clientes.Cliente.zona">
                         
                     </select>
                 </label>
+                
                 
                 <a ng-click="addCliente(clientes.Cliente);" id="agregarCliente-button16" class="button button-positive  button-block">Guardar</a>
             </form>

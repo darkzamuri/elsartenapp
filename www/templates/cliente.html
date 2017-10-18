@@ -95,37 +95,35 @@
                   <i class="icon ion-cash" style="display: block !important;"></i>
                  
                 </button>
-                <button class="button button-dark" style="border-radius : 0;display: inline-block !important; font-size: 14px; line-height: 10px; padding: 5px;" ui-sref="ubicacionDeCliente({idCliente : idCliente})">Ubicacion
-                  <i class="icon ion-earth" style="display: block !important;"></i>
-                </button>
+                
     </div>
     <script id = "my-modal.html" type = "text/ng-template">
-   <ion-modal-view >
+   <ion-modal-view class="mask2" style="color : white;">
       <ion-header-bar>
          <h1 class = "title">Actualizar Cliente</h1><button class = "button icon icon-left ion-ios-close-outline"
             ng-click = "closeModal()">Cerrar</button>
       </ion-header-bar>
         
       <ion-content>
-        <div class="item item-body" id="agregarCliente-list-item-container15">
+        <div class="item item-body " style="color : white;" id="agregarCliente-list-item-container15">
          <form id="agregarCliente-form11" class="list">
                 <label class="item item-input" id="agregarCliente-input16">
                     <span class="input-label">Nombre</span>
-                    <input type="text" placeholder="" ng-model="clientes.Cliente.cli_des">
+                    <input type="text" style="color : white;" placeholder="" ng-model="clientes.Cliente.cli_des">
                 </label>
                 <label class="item item-input" id="agregarCliente-input16">
                     <span class="input-label">Telefonos</span>
-                    <input type="text" placeholder="" ng-model="clientes.Cliente.telefonos">
+                    <input type="text"  style="color : white;" placeholder="" ng-model="clientes.Cliente.telefonos">
                 </label>
                 <div class="spacer" style="width: 268px; height: 24px;"></div>
                 <label class="item item-input" id="agregarCliente-input18">
                     <span class="input-label">Email</span>
-                    <input type="email" placeholder="" ng-model="clientes.Cliente.email">
+                    <input type="email" placeholder="" style="color : white;" ng-model="clientes.Cliente.email">
                 </label>
                 <div class="spacer" style="width: 268px; height: 24px;"></div>
                 <label class="item item-input" id="agregarCliente-input19">
                     <span class="input-label">Direccion</span>
-                    <input type="text" placeholder="" ng-model="clientes.Cliente.direccion">
+                    <input type="text" placeholder="" style="color : white;" ng-model="clientes.Cliente.direccion">
                 </label>
                 
                 <a ng-click="updateCliente(clientes.Cliente);" id="agregarCliente-button16" class="button button-positive  button-block">Actualizar</a>

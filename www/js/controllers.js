@@ -16,7 +16,7 @@ angular.module('app.controllers', ['ionic.cloud', 'angular-repeat-n', 'chart.js'
     });
   })
   .controller('loginCtrl', ['$scope', '$stateParams', '$ionicPopup', '$timeout', '$http', '$rootScope', '$state', '$cordovaSQLite', '$ionicPopup', // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function($scope, $stateParams, $ionicPopup, $timeout, $http, $rootScope, $state, $cordovaSQLite, $ionicPopup) {
+    function($scope ,$stateParams, $ionicPopup, $timeout, $http, $rootScope, $state, $cordovaSQLite, $ionicPopup) {
 
       if (localStorage.getItem('username')) {
         $state.go('elSartN');
@@ -55,19 +55,18 @@ angular.module('app.controllers', ['ionic.cloud', 'angular-repeat-n', 'chart.js'
                 localStorage.setItem("co_ven", res.data.vendedor.Vendedore.co_ven.trim());
                 localStorage.setItem("user_id", res.data.user.User.id);
 
-                //window.FirebasePlugin.getToken(function(token) {
+              // window.FirebasePlugin.getToken(function(token) {
                 // save this server-side and use it to push notifications to this device
-                //$http.post(localStorage.getItem('webroot')+'addPushToken', {user_id : res.data.user.User.id , pushtoken : token}).then(function (res){
+              //$http.post(localStorage.getItem('webroot')+'addPushToken', {user_id : res.data.user.User.id , pushtoken : token}).then(function (res){
 
                   $state.go('elSartN');
 
-                  //});
+              //});
 
-                    //          }, function(error) {
-
-                      //          console.error(error);
-                //
-                //});
+                //      }, function(error) {
+                  //       console.error(error);
+                //$state.go('elSartN');
+              //});
 
               } else {
                 $ionicPopup.alert({
@@ -183,7 +182,7 @@ angular.module('app.controllers', ['ionic.cloud', 'angular-repeat-n', 'chart.js'
       var myElements = document.querySelectorAll(".header-item");
 
       myElements[0].style.display = 'block';
-
+      
       $scope.username = localStorage.getItem("username");
       var idVendedor = localStorage.getItem("co_ven");
       $scope.clientes = {};
@@ -209,6 +208,7 @@ angular.module('app.controllers', ['ionic.cloud', 'angular-repeat-n', 'chart.js'
         $scope.vendedor = {};
         $scope.data = [];
         $scope.labels = [];
+        var x = 0;
         $http({
           method: 'GET',
           url: link3
@@ -220,6 +220,8 @@ angular.module('app.controllers', ['ionic.cloud', 'angular-repeat-n', 'chart.js'
 
             $scope.labels.push(meses[value[0].mes - 1]);
             $scope.data.push(parseInt(value[0].cuantas));
+            x++;
+            
           });
 
         }, function errorCallback(response) {
@@ -370,6 +372,7 @@ angular.module('app.controllers', ['ionic.cloud', 'angular-repeat-n', 'chart.js'
 
       var link = localStorage.getItem('webroot') + 'Articulos/getArticulos';
 
+      $scope.webroot = localStorage.getItem('webroot');
       $scope.productos = {};
       $scope.pagination = {};
       $scope.co_cli = 0;

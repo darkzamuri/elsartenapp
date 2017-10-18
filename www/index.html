@@ -68,17 +68,17 @@
 
 #loginview {
   background: url('img/cocinaindustrial01_elsarten.jpg') no-repeat center center fixed; 
-        -webkit-background-size: 100% cover;
-        -moz-background-size: 100% cover;
-        background-size: 100% cover;
+       -webkit-background-size: containt;
+        -moz-background-size: containt;
+        background-size: containt;
 
 }
 
 #olvidobg {
   background: url('img/cocinaindustrial02_elsarten.jpg')no-repeat center center fixed;
-  -webkit-background-size: 100% cover;
-        -moz-background-size: 100% cover;
-        background-size: 100% cover;
+  -webkit-background-size: containt;
+        -moz-background-size: containt;
+        background-size: containt;
 }
 .mask { background-color : transparent;   background-color: rgba(0,0,0,.50) !important;background-color : black;
   color : white;
@@ -119,11 +119,15 @@ h2 {
 p {
   color : white;
 }
-
+ion-nav-back-button {
+  .hide {
+      display: none !important;
+  }
+}
 
     </style>
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
-
+    
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/routes.js"></script>

@@ -1,3 +1,11 @@
+<style type="text/css">
+    .hide {
+        display: none !important;
+    }
+    .ion-navicon {
+        display : block !important;
+    }
+</style>
 <ion-view title="El Sartén" hide-back-button="true" id="olvidobg" ng-init="loadData();" >
     <ion-content padding="true" class="has-header mask" >
         <div id="elSartN-markdown19" style="color:white;">
@@ -27,11 +35,7 @@
         <ion-item class="item-icon-left mask2 borderline" id="detalleVendedor-list-item46" class="mask2 borderline" ui-sref="clientes">
                 <i class="icon ion-person"></i>{{vendedor.Clientes[0][0].count}} Clientes</ion-item>
         </ion-list>
-        <div class="spacer" style="width: 300px; height: 25px;"></div>
-        <ion-list id="detalleVendedor-list35" class="mask2 borderline">
-            <ion-item class="item-icon-left mask2 borderline" id="detalleVendedor-list-item48" ui-sref="cotizacionesClientes">
-                <i class="icon ion-android-cart"></i>Productos Pendientes</ion-item>
-        </ion-list>
+        
 
         <div class="spacer" style="width: 300px; height: 25px;"></div>
         <h2 id="elSartN-heading6" style="color:white;">Estadisticas</h2>

@@ -5,7 +5,7 @@ var db = null;
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic','ionic.cloud' ,  'app.controllers', 'app.routes', 'app.directives','app.services','uiGmapgoogle-maps','googlemaps.init', 'ion-datetime-picker' , 'ngCordova' , 'naif.base64'  ])
+angular.module('app', ['ionic','ionic.cloud' ,  'app.controllers', 'app.routes', 'app.directives','app.services','uiGmapgoogle-maps','googlemaps.init', 'ion-datetime-picker' , 'ngCordova' , 'naif.base64'   ])
 
 .run(function($ionicPlatform , $cordovaPushV5 , $rootScope ) {
   $ionicPlatform.ready(function() {

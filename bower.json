@@ -9,6 +9,7 @@
     "moment": "^2.14.1",
     "ngCordova": "~0.1.27-alpha",
     "angular-google-chart": "^0.1.0",
-    "chart.js": "^2.5.0"
+    "chart.js": "^2.5.0",
+    "angular-indexedDB": "angularjs-indexedDB#*"
   }
 }

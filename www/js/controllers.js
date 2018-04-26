@@ -94,6 +94,23 @@ angular.module('app.controllers', ['ionic.cloud', 'angular-repeat-n', 'chart.js'
 
       var link = localStorage.getItem('webroot') + 'Clientes/getClientes/' + localStorage.getItem("user_id");
       var link2 = localStorage.getItem('webroot') + 'Clientes/searchCliente/' + localStorage.getItem("user_id");
+      var link3 = localStorage.getItem('webroot') + 'Zonas/getZonas/';
+      $scope.zonas = {};
+      $scope.cliente = {
+        zona : '',
+        search : ''
+      };
+      $http({
+        method: 'GET',
+        url: link3
+      }).then(function successCallback(response) {
+        // this callback will be called asynchronously
+        // when the response is available
+        $scope.Zonas = response.data;
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+      });
       $http({
         method: 'GET',
         url: link
@@ -106,10 +123,13 @@ angular.module('app.controllers', ['ionic.cloud', 'angular-repeat-n', 'chart.js'
         // or server returns response with an error status.
       });
 
-      $scope.search = function(data) {
+      $scope.search = function() {
+        if(!$scope.cliente.zona){
+          $scope.cliente.zona = ''; 
+        }
         $http({
           method: 'GET',
-          url: link2 + '/' + data.search
+          url: link2 + '/' + $scope.cliente.search + '/' + $scope.cliente.zona
         }).then(function successCallback(response) {
           // this callback will be called asynchronously
           // when the response is available
@@ -698,9 +718,11 @@ angular.module('app.controllers', ['ionic.cloud', 'angular-repeat-n', 'chart.js'
       var idCliente = $stateParams.idCliente;
 
       var link = localStorage.getItem('webroot') + 'Clientes/getCliente/' + idCliente;
+
       $scope.cliente = {};
       $scope.facturas = {};
       $scope.data = {};
+
       $http({
         method: 'GET',
         url: link
@@ -712,6 +734,10 @@ angular.module('app.controllers', ['ionic.cloud', 'angular-repeat-n', 'chart.js'
         // called asynchronously if an error occurs
         // or server returns response with an error status.
       });
+        
+        
+
+
 
     }
   ])

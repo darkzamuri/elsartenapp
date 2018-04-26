@@ -14,9 +14,10 @@
         <div class="spacer" style="width: 300px; height: 24px;"></div>
         <ion-list id="productos-list17" ng-repeat="producto in productos">
             <ion-item class="item-thumbnail-left item-icon-right mask2 borderline" id="productos-list-item28">
-                <img src="{{webroot + 'files/productos/' + producto.Articulo.co_lin.trim()}}.jpg" ui-sref="detalleProducto({idProducto:producto.Articulo.id})" >
+                <img src="{{webroot + 'img/' + producto.Articulo.co_art.trim()}}.bmp" ui-sref="detalleProducto({idProducto:producto.Articulo.id})" >
                 <h2 >{{producto.Articulo.art_des}}</h2>
-                <h2>{{producto.Articulo.precio}} Bs.</h2>
+                <h2>{{producto.Articulo.precio | number:2}} Bs.</h2>
+                <h2 ><i ng-class="{'success' : producto.Articulo.stock_act > 0}" class="ion-checkmark-circled"></i> {{producto.Articulo.stock_act > 0 ? producto.Articulo.stock_act + ' En Inventario' : 'Sin Inventario'}}</h2>
                 <div ng-show="co_cli > 1">
                     <i class="icon ion-android-add-circle" ng-click="addProducto({co_art:producto.Articulo.co_art , cantidad : productos.Articulo.cantidad[$index]})"></i>
                     <ion-item style="border: none;">

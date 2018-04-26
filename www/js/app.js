@@ -67,3 +67,8 @@ angular.module('app', ['ionic','ionic.cloud' ,  'app.controllers', 'app.routes',
     return $cordovaLaunchNavigator;
   }])
 
+  .run(["$locale", function ($locale) {
+    $locale.NUMBER_FORMATS.GROUP_SEP = ".";
+    $locale.NUMBER_FORMATS.DECIMAL_SEP = ",";
+}])
+

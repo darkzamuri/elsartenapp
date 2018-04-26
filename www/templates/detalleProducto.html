@@ -1,14 +1,12 @@
 <ion-view title="{{producto.Articulo.art_des}}" id="olvidobg">
     <ion-content padding="true" class="has-header mask2">
-    <ion-slide-box on-slide-changed="slideHasChanged($index)" style="text-align : center;">
-  		<ion-slide>      
-            <img src="{{produtcto}}">
-        </ion-slide>
-        
+             <img src="{{'http://elsarten.dyndns-home.com:8080/el_sarten/img/' + producto.Articulo.co_art.trim()}}.bmp">    
     </ion-slide-box>    
         <div id="detalleProducto-markdown6" style="color:#000000;">
             <p>{{producto.Articulo.art_des}}</p>
-            <p>{{producto.Articulo.precio}}</p>
+            <p>{{producto.Articulo.precio | number:2}}</p>
+            <h2 ><i ng-class="{'success' : producto.Articulo.stock_act > 0}" class="ion-checkmark-circled"></i> {{producto.Articulo.stock_act > 0 ? producto.Articulo.stock_act + ' En Inventario' : 'Sin Inventario'}}</h2>
+                
         </div>     
     </ion-content>
 </ion-view>

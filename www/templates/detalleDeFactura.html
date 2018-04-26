@@ -9,10 +9,10 @@
         <h1 id="detalleCotizacion-heading4" style="color:white;">Productos</h1>     
         <ion-list id="detalleCotizacion-list26" ng-repeat="f in factura.Articulos">
             <ion-item class="item-thumbnail-left" id="detalleCotizacion-list-item32" >
-                <img src="http://placehold.it/120x120">
+                <img src="{{'http://elsarten.dyndns-home.com:8080/el_sarten/img/' + f.a.co_art}}.bmp">
                 <h2>{{f.a.co_art}}
                     <br>{{f.a.art_des}}
-                    <br>{{f.a.precio}}</h2>
+                    <br>{{f.a.precio | number:2}}</h2>
 
             </ion-item>
             

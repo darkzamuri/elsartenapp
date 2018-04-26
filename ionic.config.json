@@ -1,4 +1,14 @@
 {
   "name": "elsartenapp",
-  "app_id": "65693c1b"
+  "app_id": "65693c1b",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }
